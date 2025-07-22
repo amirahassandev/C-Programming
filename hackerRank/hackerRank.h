@@ -1,0 +1,3 @@
+
+void DynamicArrayInC();
+void SortingArrayOfString();
