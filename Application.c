@@ -13,14 +13,12 @@ int main(){
     Push(&s, 5);
     Push(&s, 2);
     Push(&s, 3);
-    Push(&s, 7);
-    Push(&s, 10);
-    Push(&s, 20);
-    Push(&s, 30);
+
 
 
     printf("%d\n\n", PeekStack(&s));
     Pop(&s);
+    DeleteStack(&s);
     PrintStack(&s);
 
     return 0;

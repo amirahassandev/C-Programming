@@ -1,5 +1,6 @@
 #include "stack.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 static int IsEmpty(Stack *ptr_stack){
     return ptr_stack->top == -1;
@@ -44,7 +45,12 @@ TYPE_STACK PeekStack(Stack *ptr_stack){
 
 // Note => We use %d for printing TYPE_STACK because TYPE_STACK is defined as int.
 void PrintStack(Stack *ptr_stack){
-    for(unsigned int i = MAX_STACK - 1; i>=0; i--){
+    for(unsigned int i = ptr_stack->top; i>=0; i--){
         printf("%d\n", ptr_stack->elements[i]);
     }
+}
+
+void DeleteStack(Stack *ptr_stack){
+    free(ptr_stack);
+    ptr_stack->top = -1;
 }

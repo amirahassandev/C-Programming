@@ -26,4 +26,7 @@ TYPE_STACK PeekStack(Stack *ptr_stack);
 // PrintStack function to show all elements of stack
 void PrintStack(Stack *ptr_stack);
 
+// DeleteStack function to delete all elements from stack
+void DeleteStack(Stack *ptr_stack);
+
 #endif
