@@ -1,18 +1,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "leetcode/leetcode.h"
+#include "DataStructure/Stack/stack.h"
 
-struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
-    
-}
+
 
 int main(){
-    int nums[] = {2,7,11,15};
-    int returnSize;
-    int size = sizeof(nums) / sizeof(nums[0]);
-    int* result = twoSum(nums, 4, 9, &returnSize);
-     printf("[%d, %d]\n", result[0], result[1]);
+    Stack s;
+    InitializeStack(&s);
+    Push(&s, 5);
+    Push(&s, 2);
+    Push(&s, 3);
+    Push(&s, 7);
+    Push(&s, 10);
+    Push(&s, 20);
+    Push(&s, 30);
+
+
+    printf("%d\n\n", PeekStack(&s));
+    Pop(&s);
+    PrintStack(&s);
 
     return 0;
 }
