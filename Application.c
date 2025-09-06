@@ -2,33 +2,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "leetcode/leetcode.h"
-#include "DataStructure/Stack/Linked/stack.h"
-#include "DataStructure/Array_DS/array.h"
-// #include "DataStructure/LinkedList_DS/linkedlist.h"
 
+#include "DataStructure/Queue_DS/Linked/queue.h"
 
 
 
 int main(){
-    
-    Stack_Linked stack;
-    InitializeStack(&stack);
-    Push(&stack, 10);
-    PrintStack(&stack);
+    Queue_Linked queue;
+    InitializeQueue(&queue);
 
-    Push(&stack, 20);
-    PrintStack(&stack);
+    Enqueue(&queue, 4);
+    PrintQueue(&queue);
 
-    Push(&stack, 50);
-    PrintStack(&stack);
+    Enqueue(&queue, 7);
+    PrintQueue(&queue);
 
-    Pop(&stack);
-    PrintStack(&stack);
-
-    printf("PeekStack: %d\n",PeekStack(&stack));
-    printf("IsFound: %d",IsFound(&stack, 10));
-
+    printf("IsFound: %d\n", IsFound(&queue, 4));
+    printf("IsFound: %d\n", IsFound(&queue, 8));
+    printf("Peek: %d\n", PeekQueue(&queue));
+    ClearQueue(&queue);
+    printf("Count: %d\n", CountQueue(&queue));
 
 
 
