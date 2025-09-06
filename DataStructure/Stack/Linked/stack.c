@@ -2,39 +2,68 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int IsEmpty(Stack *ptr_stack){
-    return ptr_stack->top->next == NULL;
+static int IsEmpty(Stack_Linked *ptr_stack){
+    return ptr_stack->top == NULL;
 }
 
-void InitializeStack(Stack *ptr_stack){
-    ptr_stack->top->next = NULL;
+static int IsFull(Stack_Linked *ptr_stack){
+    Node_Stack *node = (Node_Stack*)malloc(sizeof(Node_Stack));
+    if(!node){
+        printf("Memory allocation failed!\n");
+        return 0;
+    }
+    return 1;
+}
+
+
+void InitializeStack(Stack_Linked *ptr_stack){
+    ptr_stack->top = NULL;
 }    
 
-void Push(Stack *ptr_stack, TYPE_STACK value){
-    Node *newNode = (Node*)malloc(sizeof(Node));
+void Push(Stack_Linked *ptr_stack, TYPE_STACK value){
+    Node_Stack *newNode = (Node_Stack*)malloc(sizeof(Node_Stack));
     if(!newNode){
         printf("Memory allocation failed!\n");
         return;
     }
 
     newNode->element = value;
-    newNode->next = ptr_stack->top->next;
+    newNode->next = NULL;
 
-    ptr_stack->top = newNode;
-
-    ptr_stack->top->next = NULL;
+    if(IsEmpty(ptr_stack)){
+        ptr_stack->top = newNode;
+    }
+    else{
+        newNode->next = ptr_stack->top;
+        ptr_stack->top = newNode;
+    }
 }
 
-// void Pop(Stack *ptr_stack){
-//     if(!IsEmpty(ptr_stack)){
-//         ptr_stack->top = NULL;
-//     }
-//     else{
-//         printf("Error: Cannot pop from stack. The stack is empty.\n");
-//     }
-// }
+// Note => We use %d for printing TYPE_STACK because TYPE_STACK is defined as int.
+void PrintStack(Stack_Linked *ptr_stack){
+    Node_Stack *tempNode = ptr_stack->top;
+    while (tempNode)
+    {
+        printf("%d\n", tempNode->element);
+        tempNode = tempNode->next;
+    }
+    printf("\n");
+}
 
-TYPE_STACK PeekStack(Stack *ptr_stack){
+int Pop(Stack_Linked *ptr_stack){
+    if(IsEmpty(ptr_stack)){
+        printf("Error: Cannot pop from stack. The stack is empty.\n");
+        return 0;
+    }
+    else{
+        Node_Stack *delPtr = ptr_stack->top;
+        ptr_stack->top = delPtr->next;
+        free(delPtr);
+    }
+    return ptr_stack->top->element;
+}
+
+TYPE_STACK PeekStack(Stack_Linked *ptr_stack){
     if(!IsEmpty(ptr_stack)){
         return ptr_stack->top->element;
     }
@@ -44,20 +73,30 @@ TYPE_STACK PeekStack(Stack *ptr_stack){
     }
 }
 
+int CountStack(Stack_Linked *ptr_stack){
+    int count = 0;
+    Node_Stack *tempNode = ptr_stack->top;
+    while (tempNode)
+    {
+        count++;
+        tempNode = tempNode->next;
+    }
+    return count;
+}
 
-// Note => We use %d for printing TYPE_STACK because TYPE_STACK is defined as int.
-// void PrintStack(Stack *ptr_stack){
-//     Node *currentNode = (Node*)malloc(sizeof(Node));
-//     if(!currentNode){
-//         printf("Memory allocation failed!\n");
-//         return;
-//     }
-
-//     currentNode->next = ptr_stack->top
-//     while(ptr){
-//         printf("%d\n", ptr_stack->top->element);
-//     }
-// }
+int IsFound(Stack_Linked *ptr_stack, int value){
+    int found = 0;
+    Node_Stack *tempNode = ptr_stack->top;
+    while (tempNode)
+    {
+        if(value == tempNode->element){
+            found = 1;
+            return found;
+        }
+        tempNode = tempNode->next;
+    }
+    return found;
+}
 
 // void DeleteStack(Stack *ptr_stack){
 //     free(ptr_stack);

@@ -3,35 +3,32 @@
 #include <stdlib.h>
 #include <string.h>
 #include "leetcode/leetcode.h"
-// #include "DataStructure/Stack/Linked/stack.h"
+#include "DataStructure/Stack/Linked/stack.h"
 #include "DataStructure/Array_DS/array.h"
-#include "DataStructure/LinkedList_DS/linkedlist.h"
+// #include "DataStructure/LinkedList_DS/linkedlist.h"
 
 
 
 
 int main(){
     
-    Linkedlist list;
-    CreateLinkedList(&list);
-    InsertFirstLinkedList(&list);
-    // InsertFirstLinkedList(&list);
-    // InsertFirstLinkedList(&list);
+    Stack_Linked stack;
+    InitializeStack(&stack);
+    Push(&stack, 10);
+    PrintStack(&stack);
 
-    // InsertBeforeLinkedList(&list);
-    AppendInLinkedList(&list);
-    AppendInLinkedList(&list);
-    DeleteFromLinkedList(&list);
-    
-    TraverseLinkedList(&list);
-    // InsertBeforeLinkedList(&list);
-    DeleteFromLinkedList(&list);
-    TraverseLinkedList(&list);
-    DeleteFromLinkedList(&list);
-    TraverseLinkedList(&list);
+    Push(&stack, 20);
+    PrintStack(&stack);
 
+    Push(&stack, 50);
+    PrintStack(&stack);
 
-    // printf("%d\n",SearchLinkedList(&list));
+    Pop(&stack);
+    PrintStack(&stack);
+
+    printf("PeekStack: %d\n",PeekStack(&stack));
+    printf("IsFound: %d",IsFound(&stack, 10));
+
 
 
 

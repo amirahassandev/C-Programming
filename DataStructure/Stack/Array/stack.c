@@ -2,19 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int IsEmpty(Stack *ptr_stack){
+static int IsEmpty(Stack_Arr *ptr_stack){
     return ptr_stack->top == -1;
 }
 
-static int IsFull(Stack *ptr_stack){
+static int IsFull(Stack_Arr *ptr_stack){
     return ptr_stack->top == MAX_STACK - 1;
 }
 
-void InitializeStack(Stack *ptr_stack){
+void InitializeStack(Stack_Arr *ptr_stack){
     ptr_stack->top = -1;
 }    
 
-void Push(Stack *ptr_stack, TYPE_STACK value){
+void Push(Stack_Arr *ptr_stack, TYPE_STACK value){
     if(!IsFull(ptr_stack)){
         ptr_stack->elements[++ptr_stack->top] = value;
     }
@@ -23,7 +23,7 @@ void Push(Stack *ptr_stack, TYPE_STACK value){
     }
 }
 
-void Pop(Stack *ptr_stack){
+void Pop(Stack_Arr *ptr_stack){
     if(!IsEmpty(ptr_stack)){
         ptr_stack->top--;
     }
@@ -32,7 +32,7 @@ void Pop(Stack *ptr_stack){
     }
 }
 
-TYPE_STACK PeekStack(Stack *ptr_stack){
+TYPE_STACK PeekStack(Stack_Arr *ptr_stack){
     if(!IsEmpty(ptr_stack)){
         return ptr_stack->elements[ptr_stack->top];
     }
@@ -44,13 +44,13 @@ TYPE_STACK PeekStack(Stack *ptr_stack){
 
 
 // Note => We use %d for printing TYPE_STACK because TYPE_STACK is defined as int.
-void PrintStack(Stack *ptr_stack){
+void PrintStack(Stack_Arr *ptr_stack){
     for(unsigned int i = ptr_stack->top; i>=0; i--){
         printf("%d\n", ptr_stack->elements[i]);
     }
 }
 
-void DeleteStack(Stack *ptr_stack){
+void DeleteStack(Stack_Arr *ptr_stack){
     free(ptr_stack);
     ptr_stack->top = -1;
 }
