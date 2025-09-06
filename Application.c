@@ -5,41 +5,35 @@
 #include "leetcode/leetcode.h"
 // #include "DataStructure/Stack/Linked/stack.h"
 #include "DataStructure/Array_DS/array.h"
+#include "DataStructure/LinkedList_DS/linkedlist.h"
+
 
 
 
 int main(){
-    array_ds arr, arr1;
-    CreateArray(&arr);
-    FillArray(&arr);
-    DisplayArray(&arr);
-    printf("\n\n");
-    printf("Search: %d\n",SearchArray(&arr));
-    AppendArray(&arr);
-    printf("Length: %d\n",GetLengthArray(&arr));
-    DisplayArray(&arr);
-    printf("\n\n");
-    InsertArray(&arr);
-    printf("Length: %d\n",GetLengthArray(&arr));
-    DisplayArray(&arr);
-    printf("\n\n");
-    DeleteArray(&arr);
-    printf("Length: %d\n",GetLengthArray(&arr));
-    DisplayArray(&arr);
-    EnlargeArray(&arr);
-    printf("Size: %d\n", GetSizeArray(&arr));
-    DisplayArray(&arr);
+    
+    Linkedlist list;
+    CreateLinkedList(&list);
+    InsertFirstLinkedList(&list);
+    // InsertFirstLinkedList(&list);
+    // InsertFirstLinkedList(&list);
 
-    CreateArray(&arr1);
-    FillArray(&arr1);
-    DisplayArray(&arr1);
-    printf("\n\n");
-    MergeArray(&arr, &arr1);
-
-    DisplayArray(&arr);
+    // InsertBeforeLinkedList(&list);
+    AppendInLinkedList(&list);
+    AppendInLinkedList(&list);
+    DeleteFromLinkedList(&list);
+    
+    TraverseLinkedList(&list);
+    // InsertBeforeLinkedList(&list);
+    DeleteFromLinkedList(&list);
+    TraverseLinkedList(&list);
+    DeleteFromLinkedList(&list);
+    TraverseLinkedList(&list);
 
 
-    // GetSizeArray(&arr);
+    // printf("%d\n",SearchLinkedList(&list));
+
+
 
 
     return 0;
