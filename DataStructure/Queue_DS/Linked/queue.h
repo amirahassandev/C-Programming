@@ -29,7 +29,7 @@ void Dequeue(Queue_Linked *queue);
 int IsFound(Queue_Linked *queue, QUEUE_TYPE item);
 QUEUE_TYPE PeekQueue(Queue_Linked *queue);
 int CountQueue(Queue_Linked *queue);
-int ClearQueue(Queue_Linked *queue);
+void ClearQueue(Queue_Linked *queue);
 
 
 

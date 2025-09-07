@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "DataStructure/Queue_DS/Linked/queue.h"
+#include "DataStructure/Queue_DS/Array/queue.h"
 
 
 
 int main(){
-    Queue_Linked queue;
+    Queue_Arr queue;
     InitializeQueue(&queue);
 
     Enqueue(&queue, 4);
@@ -17,7 +17,10 @@ int main(){
     Enqueue(&queue, 7);
     PrintQueue(&queue);
 
-    printf("IsFound: %d\n", IsFound(&queue, 4));
+    Dequeue(&queue);
+    PrintQueue(&queue);
+
+    printf("IsFound: %d\n", IsFound(&queue, 7));
     printf("IsFound: %d\n", IsFound(&queue, 8));
     printf("Peek: %d\n", PeekQueue(&queue));
     ClearQueue(&queue);

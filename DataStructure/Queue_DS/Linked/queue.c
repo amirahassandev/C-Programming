@@ -85,7 +85,7 @@ int CountQueue(Queue_Linked *queue){
     return count;
 }
 
-int ClearQueue(Queue_Linked *queue){
+void ClearQueue(Queue_Linked *queue){
     while (!IsEmpty(queue))
     {
         // NodeQueue *delPtr = queue->front;
